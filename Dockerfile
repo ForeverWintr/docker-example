@@ -1,4 +1,4 @@
-FROM python:3.11-slim 
+FROM python:3.11-slim
 
-COPY ./README.md .
-CMD [ "python3" ]
+COPY ./debug.py .
+CMD [ "python3", "debug.py" ]
