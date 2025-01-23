@@ -18,7 +18,7 @@ jobs:
 
       - name: Evaluate the improved expression
         id: improved-expression
-        run: echo "Improved Expression: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
+        run: "echo Improved Expression: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
       - name: Evaluate the improved expression
         run: |
           echo "Improved Expression: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
