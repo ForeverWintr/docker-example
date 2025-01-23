@@ -1,4 +1,4 @@
-name: Debug GitHub Context (from Chatgpt)
+name: Debug GitHub Context
 
 on:
   workflow_dispatch:
@@ -9,18 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print github.event_name
-        run: echo "Event Name: ${{ github.event_name }}"
+        run: "echo Event Name: ${{ github.event_name }}"
 
       - name: Evaluate your current expression
-        with:
-          current_expression: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          echo "Your Expression (from with block): ${{ inputs.current_expression }}"
-          echo "Evaluated directly: ${{ github.event_name == 'workflow_dispatch' }}"
+          echo "Your Expression (${ github.event_name == 'workflow_dispatch' }):"
+          echo "${{ github.event_name == 'workflow_dispatch' }}"
 
       - name: Evaluate the improved expression
-        with:
-          improved_expression: "${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
         run: |
-          echo "Improved Expression (from with block): ${{ inputs.improved_expression }}"
-          echo "Evaluated directly: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
+          echo "Improved Expression (${ github.event_name == 'workflow_dispatch' && 'true' || 'false' }):"
+          echo "${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}"
